@@ -1,0 +1,12 @@
+server:
+  port: 8089
+
+# Spring
+spring:
+  application:
+    name: e-school-service-task
+  main:
+    allow-bean-definition-overriding: true
+
+
+

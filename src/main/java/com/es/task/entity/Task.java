@@ -24,6 +24,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @EntityListeners({AuditingEntityListener.class, TaskAuditListener.class})
 public class Task extends BaseEntity {
+
     @ApiModelProperty("任务名称")
     @Column(name = "name", nullable = true, columnDefinition = BaseEntity.VARCHAR_DEFAULT_0)
     private String name = null;

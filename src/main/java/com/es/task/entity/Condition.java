@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 
 @ApiModel(description = "用户交易")
-@Table(name = "t_condition", indexes = @Index(name = "idx_userId_account_type", columnList = "userId,account_type"))
+@Table(name = "t_condition", indexes = @Index(name = "idx_key", columnList = "key"))
 @Entity
 @Data
 @DynamicInsert(true)
@@ -24,9 +24,21 @@ import javax.persistence.Table;
 @ToString(callSuper = true)
 public class Condition extends BaseEntity {
 
-    @ApiModelProperty("描表达式")
-    @Column(name = "expression", nullable = true, columnDefinition = BaseEntity.VARCHAR_DEFAULT_0)
-    private String expression = null;
+    @ApiModelProperty("条件名")
+    @Column(name = "name", nullable = true, columnDefinition = BaseEntity.VARCHAR_DEFAULT_0)
+    private String name = null;
+
+    @ApiModelProperty("关键字")
+    @Column(name = "key", nullable = true, columnDefinition = BaseEntity.VARCHAR_DEFAULT_0)
+    private String key = null;
+
+    @ApiModelProperty("值")
+    @Column(name = "value", nullable = true, columnDefinition = BaseEntity.VARCHAR_DEFAULT_0)
+    private String value = null;
+
+    @ApiModelProperty("是否反转")
+    @Column(name = "is_reverse", nullable = true, columnDefinition = BaseEntity.INT_DEFAULT_0)
+    private boolean isReverse = false;
 
     @ApiModelProperty("备注")
     @Column(name = "remark", nullable = true, columnDefinition = BaseEntity.VARCHAR_DEFAULT_0)
